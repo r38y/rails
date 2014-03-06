@@ -273,7 +273,7 @@ module ActionView
 
         # Make sure that the resulting String to be evalled is in the
         # encoding of the code
-        source.freeze = <<-end_src
+        source = <<-end_src.freeze
           def #{method_name}(local_assigns, output_buffer)
             _old_virtual_path, @virtual_path = @virtual_path, #{@virtual_path.inspect};_old_output_buffer = @output_buffer;#{locals_code};#{code}
           ensure
